@@ -4,7 +4,7 @@
 
 This project implements a backend service for managing students and collecting school fees. The application exposes REST APIs to register students, collect fee payments, and retrieve payment receipts.
 
-The solution is built using **Spring Boot** and uses an **H2 in-memory database** for persistence. **Swagger** is included for API documentation and testing.
+The solution is built using Spring Boot and uses an H2 in-memory database for persistence. Swagger is included for API documentation and testing.
 
 
 ## Technology Stack
@@ -37,7 +37,7 @@ Retrieves receipt details using the receipt number.
 You can start the application using Maven. The application will start on port 8080
 
 ### Prerequisites
-- Java 17
+- Java 17+
 - Maven
 
 ### Steps
