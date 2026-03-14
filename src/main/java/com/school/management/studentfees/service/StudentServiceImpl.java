@@ -1,6 +1,6 @@
 package com.school.management.studentfees.service;
 
-import com.school.management.studentfees.dto.AddStudentRequest;
+import com.school.management.studentfees.dto.StudentRequest;
 import com.school.management.studentfees.dto.StudentResponse;
 import com.school.management.studentfees.entity.Student;
 import com.school.management.studentfees.exception.StudentExistsException;
@@ -17,7 +17,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public StudentResponse addStudent(AddStudentRequest request) {
+    public StudentResponse addStudent(StudentRequest request) {
         if (studentRepository.existsByStudentId(request.getStudentId())) {
             throw new StudentExistsException("Student already exists with id: " + request.getStudentId());
         }

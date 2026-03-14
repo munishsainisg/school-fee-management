@@ -2,7 +2,7 @@ package com.school.management.studentfees.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
-public class AddStudentRequest {
+public class StudentRequest {
 
     @NotBlank(message = "Student id is required")
     private String studentId;
@@ -19,7 +19,7 @@ public class AddStudentRequest {
     @NotBlank(message = "School name is required")
     private String schoolName;
 
-    public AddStudentRequest() {
+    public StudentRequest() {
     }
 
     public String getStudentId() {

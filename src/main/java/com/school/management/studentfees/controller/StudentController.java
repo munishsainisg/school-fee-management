@@ -1,6 +1,6 @@
 package com.school.management.studentfees.controller;
 
-import com.school.management.studentfees.dto.AddStudentRequest;
+import com.school.management.studentfees.dto.StudentRequest;
 import com.school.management.studentfees.dto.StudentResponse;
 import com.school.management.studentfees.service.StudentService;
 import jakarta.validation.Valid;
@@ -22,7 +22,7 @@ public class StudentController {
     }
 
     @PostMapping
-    public ResponseEntity<StudentResponse> addStudent(@Valid @RequestBody AddStudentRequest request) {
+    public ResponseEntity<StudentResponse> addStudent(@Valid @RequestBody StudentRequest request) {
         StudentResponse response = studentService.addStudent(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
