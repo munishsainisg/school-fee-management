@@ -60,7 +60,7 @@ You can start the application using Maven. The application will start on port 80
 
 ## API Documentation
 
-### Swagger
+### Swagger documentation:
 Swagger URL : http://localhost:8080/swagger-ui.html
 
 ### Postman Collection
