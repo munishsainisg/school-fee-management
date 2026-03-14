@@ -1,11 +1,22 @@
 package com.school.management.studentfees.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 public class StudentResponse {
 
+    @Schema(description = "Student identifier", example = "ST1001")
     private String studentId;
+
+    @Schema(description = "Student full name", example = "David Anderson")
     private String studentName;
+
+    @Schema(description = "Student grade", example = "10")
     private String grade;
+
+    @Schema(description = "Mobile number", example = "9876543210")
     private String mobileNumber;
+
+    @Schema(description = "School name", example = "Hillcrest School")
     private String schoolName;
 
     public StudentResponse() {

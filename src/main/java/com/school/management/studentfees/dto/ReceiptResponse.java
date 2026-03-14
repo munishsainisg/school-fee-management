@@ -13,13 +13,13 @@ public class ReceiptResponse {
     @Schema(description = "Student identifier", example = "ST1001")
     private String studentId;
 
-    @Schema(description = "Student name", example = "Rahul Sharma")
+    @Schema(description = "Student name", example = "David Anderson")
     private String studentName;
 
     @Schema(description = "Student grade", example = "10")
     private String grade;
 
-    @Schema(description = "School name", example = "Green Valley School")
+    @Schema(description = "School name", example = "Hillcrest School")
     private String schoolName;
 
     @Schema(description = "Fee amount paid", example = "1500.00")
