@@ -59,10 +59,11 @@ You can start the application using Maven. The application will start on port 80
 ---
 
 ## API Documentation
-Swagger UI : http://localhost:8080/swagger-ui.html
 
+### Swagger
+Swagger URL : http://localhost:8080/swagger-ui.html
 
-## Postman Collection
+### Postman Collection
 Postman collection to test the APIs is available at:
 ```
 postmen/StudentFeeManagementService.postman_collection.json
@@ -78,6 +79,7 @@ H2 console : http://localhost:8080/h2-console
 
 Connection details:
 ```
+Driver Class: org.h2.Driver
 JDBC URL: jdbc:h2:mem:studentdb
 Username: sa
 Password:
