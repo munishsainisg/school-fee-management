@@ -1,0 +1,105 @@
+{
+  "info": {
+    "name": "School Fee Management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Add Student",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentId\": \"ST1001\",\n  \"studentName\": \"David Anderson\",\n  \"grade\": \"10\",\n  \"mobileNumber\": \"9876543210\",\n  \"schoolName\": \"Hillcrest School\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/students",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Collect Fee",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "pm.collectionVariables.set(\"receiptNo\", pm.response.json().receiptNo);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentId\": \"ST1001\",\n  \"amountPaid\": 1500.00\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/fees/collect",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "fees",
+            "collect"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Receipt",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/fees/receipt/{{receiptNo}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "fees",
+            "receipt",
+            "{{receiptNo}}"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "receiptNo",
+      "value": "RCPT-AB12CD34"
+    }
+  ]
+}
