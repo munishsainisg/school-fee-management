@@ -3,7 +3,6 @@ package com.school.management.studentfees.service;
 import com.school.management.studentfees.dto.StudentRequest;
 import com.school.management.studentfees.dto.StudentResponse;
 import com.school.management.studentfees.entity.Student;
-import com.school.management.studentfees.exception.StudentExistsException;
 import com.school.management.studentfees.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +18,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public StudentResponse addStudent(StudentRequest request) {
         if (studentRepository.existsByStudentId(request.getStudentId())) {
-            throw new StudentExistsException("Student already exists with id: " + request.getStudentId());
+            throw new RuntimeException("Student already exists with id: " + request.getStudentId());
         }
 
         Student student = new Student();
