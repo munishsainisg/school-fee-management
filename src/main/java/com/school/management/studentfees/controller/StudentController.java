@@ -1,9 +1,12 @@
 package com.school.management.studentfees.controller;
 
+import com.school.management.studentfees.dto.StudentErrorResponse;
 import com.school.management.studentfees.dto.StudentRequest;
 import com.school.management.studentfees.dto.StudentResponse;
 import com.school.management.studentfees.service.StudentService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
@@ -27,9 +30,9 @@ public class StudentController {
     @PostMapping
     @Operation(summary = "Add a new student", description = "Creates a new student record in the system")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Student created successfully"),
-            @ApiResponse(responseCode = "400", description = "Invalid request"),
-            @ApiResponse(responseCode = "409", description = "Student already exists")
+            @ApiResponse(responseCode = "201", description = "Student created successfully", content = @Content(schema = @Schema(implementation = StudentResponse.class))),
+            @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content(schema = @Schema(implementation = StudentErrorResponse.class))),
+            @ApiResponse(responseCode = "500", description = "Student already exists", content = @Content(schema = @Schema(implementation = StudentErrorResponse.class)))
     })
     public ResponseEntity<StudentResponse> addStudent(@Valid @RequestBody StudentRequest request) {
         StudentResponse response = studentService.addStudent(request);
